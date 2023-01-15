@@ -21,6 +21,11 @@ class TestDownloadAudio(unittest.TestCase):
     def test_download_audio_file(self):
         """Validate the downloaded file exists"""
 
+        output_file = download_audio(self.url)
+        expected = 'She Knows - J Cole  Español.webm'
+
+        self.assertEqual(output_file.name, expected)
+
 
 # Run unittest as the main module
 if __name__ == '__main__':
