@@ -8,8 +8,7 @@ def download_audio(url: str) -> Path:
     audio_stream = youtube.streams.filter(
         only_audio=True).order_by('abr').desc().first()
     print(f'audio_stream = {audio_stream}')
-    audio_download_location = audio_stream.download(
-        filename=audio_stream.default_filename)
+    audio_download_location = audio_stream.download()
 
     output_file_path = Path(audio_download_location)
     print(f'Audio has been downloaded to: {output_file_path}')
